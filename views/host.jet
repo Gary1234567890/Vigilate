@@ -188,13 +188,15 @@ Host
                                             <tr>
                                                 <td>
                                                     {{.Service.ServiceName}}
-                                                    <span class="badge bg-secondary" onclick="checkNow({{.ID}})">
+                                                    <span class="badge bg-secondary pointer" onclick="checkNow({{.ID}})">
                                                         Check Now
                                                     </span>
                                                 </td>
                                                 <td>
                                                     {{if dateAfterYearOne(.LastCheck)}}
-                                                        {{.LastCheck}}
+                                                        {{dateFromLayout(.LastCheck, "2006-01-02 15:04")}}
+                                                    {{else}}
+                                                        Pending ...                                                    
                                                     {{end}}
                                                 </td>
                                                 <td></td>
@@ -225,13 +227,15 @@ Host
                                             <tr>
                                                 <td>
                                                     {{.Service.ServiceName}}
-                                                    <span class="badge bg-secondary" onclick="checkNow({{.ID}})">
+                                                    <span class="badge bg-secondary pointer" onclick="checkNow({{.ID}})">
                                                         Check Now
                                                     </span>
                                                 </td>
                                                 <td>
                                                     {{if dateAfterYearOne(.LastCheck)}}
-                                                        {{.LastCheck}}
+                                                        {{dateFromLayout(.LastCheck, "2006-01-02 15:04")}}
+                                                    {{else}}
+                                                        Pending ...                                                    
                                                     {{end}}
                                                 </td>
                                                 <td></td>
@@ -262,13 +266,15 @@ Host
                                             <tr>
                                                 <td>
                                                     {{.Service.ServiceName}}
-                                                    <span class="badge bg-secondary" onclick="checkNow({{.ID}})">
+                                                    <span class="badge bg-secondary pointer" onclick="checkNow({{.ID}})">
                                                         Check Now
                                                     </span>
                                                 </td>
                                                 <td>
                                                     {{if dateAfterYearOne(.LastCheck)}}
-                                                        {{.LastCheck}}
+                                                        {{dateFromLayout(.LastCheck, "2006-01-02 15:04")}}
+                                                    {{else}}
+                                                        Pending ...                                                    
                                                     {{end}}
                                                 </td>
                                                 <td></td>

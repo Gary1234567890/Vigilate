@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/tsawler/vigilate/internal/models"
 )
 
@@ -54,9 +54,13 @@ func (repo *DBRepo) TestCheck(w http.ResponseWriter, r *http.Request) {
 
 	//update the host service in the DB
 	hs.Status = newStatus
+	hs.LastCheck = time.Now()
 	hs.UpdatedAt = time.Now()
 
-	err = 
+	err = repo.DB.UpdateHostService(hs)
+	if err != nil {
+		log.Println(err)
+	}
 
 	//broadcast service status change
 
