@@ -408,12 +408,23 @@ func (m *postgresDBRepo) UpdateHostService(hs models.HostService) error {
 	stmt := `
 		UPDATE host_services 
 		SET 
-			active = $1 
+			host_id = $1, service_id = $2, active = $3, 
+			schedule_number = $4, schedule_unit = $5,
+			last_check = $6, status = $7, updated_at = $8
 		WHERE 
-			id = $
+			id = $9
 	`
 
-	_, err := m.DB.ExecContext(ctx, stmt)
+	_, err := m.DB.ExecContext(ctx, stmt,
+		hs.HostID,
+		hs.ServiceID,
+		hs.Active,
+		hs.ScheduleNumber,
+		hs.ScheduleUnit,
+		hs.Status,
+		hs.UpdatedAt,
+		hs.ID,
+	)
 	if err != nil {
 		return err
 	}

@@ -53,6 +53,10 @@ func (repo *DBRepo) TestCheck(w http.ResponseWriter, r *http.Request) {
 	newStatus, msg := repo.testServiceForHost(h, hs)
 
 	//update the host service in the DB
+	hs.Status = newStatus
+	hs.UpdatedAt = time.Now()
+
+	err = 
 
 	//broadcast service status change
 
