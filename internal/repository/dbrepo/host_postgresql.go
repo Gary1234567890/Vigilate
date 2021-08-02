@@ -421,6 +421,7 @@ func (m *postgresDBRepo) UpdateHostService(hs models.HostService) error {
 		hs.Active,
 		hs.ScheduleNumber,
 		hs.ScheduleUnit,
+		hs.LastCheck,
 		hs.Status,
 		hs.UpdatedAt,
 		hs.ID,
